@@ -20,6 +20,6 @@
 
 ## 트러블 슈팅
 
-- 설명 : immediate 버튼을 누르면 promise가 완료되지 않은 현상을 발견했습니다. 그 결과 즉시 버튼을 페이지 접속 후 최초로 누르면 console.log("즉시 디바운스")가 출력이 안되는 상황을 발견 했습니다.
+- 설명 : immediate 버튼을 누르면 promise가 완료되지 않은 현상을 발견했습니다. 그 결과 즉시 버튼을 페이지 접속 후 최초로 누르면 console.log("즉시 디바운스")가 출력이 안되는 상황을 발견했습니다.
 - 방법 : `if(immediate){...}` 코드를 `if(!promise){...}` 다음으로 순서를 바꿨습니다.
 - 결과 : immediate 버튼을 눌렀을 시 `if(immediate){...}` 실행 전 promise에 값을 할당해 정상적으로 setPromise() 함수가 실행되며 promise가 resolve가 되어 then 이하의 함수가 실행되게 설정하였습니다.
