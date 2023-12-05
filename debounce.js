@@ -38,17 +38,16 @@ const debounce = (func, wait = 500, immediate = false) => {
     }
     clearTimeout(timeoutId);
   
-    if (immediate) {
-      func();
-      setPromise();
-    }
-    timeoutId = setTimeout(later, wait);
-
     if (!promise) {
       promise = new Promise(resolve => {
         resolvePromise = resolve;
       });
     }
+    if (immediate) {
+      func();
+      setPromise();
+    }
+    timeoutId = setTimeout(later, wait);
     return promise;
   };
   
