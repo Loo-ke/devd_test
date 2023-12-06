@@ -23,3 +23,9 @@
 - 설명 : immediate 버튼을 누르면 promise가 완료되지 않은 현상을 발견했습니다. 그 결과 즉시 버튼을 페이지 접속 후 최초로 누르면 console.log("즉시 디바운스")가 출력이 안되는 상황을 발견했습니다.
 - 방법 : `if(immediate){...}` 코드를 `if(!promise){...}` 다음으로 순서를 바꿨습니다.
 - 결과 : immediate 버튼을 눌렀을 시 `if(immediate){...}` 실행 전 promise에 값을 할당해 정상적으로 setPromise() 함수가 실행되며 promise가 resolve가 되어 then 이하의 함수가 실행되게 설정하였습니다.
+
+## 면접 현장 추가사항
+
+- 설명 : wait 시간 이후에 어떤 이유로 debounce가 실행이 되지 않았을 시 maxWait을 이용해 지정된 시간 이후에 debounce가 실행되지 않으면 무조건 실행하는 코드 작성
+- 방법 : maxWait을 인자로 받아 setTimeout을 새로 설정하고 if문을 이용해 later함수가 실행되지 않으면 실행
+- 아쉬운점 : maxWait을 인자로 받아 사용한다는 것 까지는 좋았지만, 너무 긴장한 나머지 세번째 setTimeout에 사용한다고 말해서 애매한 답변이 되었습니다.
